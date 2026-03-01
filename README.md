@@ -45,7 +45,7 @@ Créer un Web Service PHP 8 permettant :
 
 1. Structure du projet
 
-<img width="161" height="311" alt="image" src="https://github.com/user-attachments/assets/18b91efb-cc3d-4b87-acab-61fd5ebe5333" />
+![](https://github.com/user-attachments/assets/18b91efb-cc3d-4b87-acab-61fd5ebe5333)
 
 2. Classe de connexion PDO (connexion/Connexion.php)
 
@@ -77,11 +77,45 @@ Créer un Web Service PHP 8 permettant :
 
 # Ajouter un étudiant :
 
-URL : http://localhost/projet/ws/createEtudiant.php
+![](https://github.com/user-attachments/assets/f3099df7-2f8a-42a7-beab-d7236390c982)
 
-Méthode : POST
-
-Body : x-www-form-urlencoded avec nom, prenom, ville, sexe
+[
+  {
+    "id": "1",
+    "nom": "Lachgar",
+    "prenom": "Mohamed",
+    "ville": "Rabat",
+    "sexe": "homme"
+  },
+  {
+    "id": "2",
+    "nom": "Safi",
+    "prenom": "Amine",
+    "ville": "Marrakech",
+    "sexe": "homme"
+  },
+  {
+    "id": "3",
+    "nom": "AZARG",
+    "prenom": "Mohamed",
+    "ville": "Khouribga",
+    "sexe": "homme"
+  },
+  {
+    "id": "4",
+    "nom": "AZARG",
+    "prenom": "hafssa",
+    "ville": "Marrakech",
+    "sexe": "femme"
+  },
+  {
+    "id": "8",
+    "nom": "Duf",
+    "prenom": "Sara",
+    "ville": "Casablanca",
+    "sexe": "femme"
+  }
+]
 
 Résultat : JSON avec tous les étudiants, nouveau inclus.
 
@@ -91,7 +125,7 @@ URL : http://localhost/projet/ws/loadEtudiant.php
 
 Méthode : GET
 
-# Résultat : JSON contenant tous les étudiants.
+ Résultat : JSON contenant tous les étudiants.
 
 
 phpMyAdmin : vérification de l’insertion dans la table Etudiant
