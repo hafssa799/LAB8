@@ -1,6 +1,11 @@
  
 # LAB 8 – Consommer un Web Service PHP 8 depuis une application Android avec Volley
 
+Dans ce laboratoire, nous avons réalisé une application Android capable de consommer un Web Service développé en PHP 8.
+L’objectif principal est de comprendre le fonctionnement des services web REST et la communication entre une application mobile et un serveur distant.
+
+Le Web Service PHP expose des données au format JSON, tandis que l’application Android utilise la bibliothèque Volley pour envoyer des requêtes HTTP (GET, POST, PUT, DELETE) et récupérer les réponses.
+
 # Partie 1 : Création de la base de données MySQL :
 
 - Objectif
