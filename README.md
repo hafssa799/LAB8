@@ -144,76 +144,67 @@ Développer une application Android permettant d’ajouter un étudiant via un s
     </application>
 </manifest>
 
-📦 Étape 3 — Intégration de Volley et Gson
+# Étape 3 — Intégration de Volley et Gson
 
-Ajout des dépendances suivantes :
+plugins {
+    alias(libs.plugins.android.application)
+}
 
-Volley (gestion des requêtes HTTP)
+android {
+    namespace = "com.example.projetws"
+    compileSdk = 35
 
-Gson (conversion JSON ↔ objets Java)
+    defaultConfig {
+        applicationId = "com.example.projetws"
+        minSdk = 24
+        targetSdk = 35
+        versionCode = 1
+        versionName = "1.0"
 
-Synchronisation du projet réussie.
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
 
-📸 Capture : build.gradle + Sync successful
+    buildTypes {
+        release {
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+}
 
-(insérer capture de Gradle après synchronisation)
-🧩 Étape 4 — Création de l’activité AddEtudiant
-🔹 Interface utilisateur
+dependencies {
+    implementation(libs.appcompat)
+    implementation(libs.material)
+    implementation(libs.activity)
+    implementation(libs.constraintlayout)
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
+    implementation("com.android.volley:volley:1.2.1")
+    implementation("com.google.code.gson:gson:2.10.1")
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.ext.junit)
+    androidTestImplementation(libs.espresso.core)
+}
 
-L’interface contient :
+# Étape 4 — Création de l’activité AddEtudiant
 
-Champ Nom
-
-Champ Prénom
-
-Liste déroulante des villes
-
-Sélection du sexe (Homme / Femme)
-
-Bouton Ajouter
-
-📸 Capture : Interface AddEtudiant
-
-(insérer capture de l'écran de l'application)
-🔹 Fonctionnement
-
-L’utilisateur saisit les informations
-
-Les données sont envoyées via une requête POST avec Volley
-
-Le serveur PHP traite la requête
-
-La réponse JSON est reçue
-
-Gson convertit la réponse en objets Etudiant
-
+![](https://github.com/user-attachments/assets/98f3811b-6e2f-494f-acff-55e63821098f)
 Les résultats sont affichés dans Logcat
+![](https://github.com/user-attachments/assets/7872ec52-14bc-4686-8cac-e7a76d4e517b)
 
-📸 Capture : Logcat après insertion
+#  Test et vérification
 
-(insérer capture Logcat avec la réponse JSON)
-🔐 Étape 5 — Configuration réseau (Android 9+)
+-Insertion d’un étudiant réussie
+![](https://github.com/user-attachments/assets/f38b7949-6948-464b-a144-743c01360524)
 
-Android bloque par défaut les connexions HTTP non sécurisées.
 
-Une configuration réseau a été ajoutée pour autoriser le trafic en local vers :
 
-10.0.2.2
-
-📸 Capture : network_security_config.xml
-
-(insérer capture configuration réseau)
-🧪 Étape 6 — Test et vérification
-
-Serveur Apache démarré
-
-MySQL démarré
-
-Application lancée sur émulateur
-
-Insertion d’un étudiant réussie
-
-Réponse affichée dans Logcat
 
 
 
