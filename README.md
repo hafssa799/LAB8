@@ -79,53 +79,142 @@ Créer un Web Service PHP 8 permettant :
 
 ![](https://github.com/user-attachments/assets/f3099df7-2f8a-42a7-beab-d7236390c982)
 
-[
-  {
-    "id": "1",
-    "nom": "Lachgar",
-    "prenom": "Mohamed",
-    "ville": "Rabat",
-    "sexe": "homme"
-  },
-  {
-    "id": "2",
-    "nom": "Safi",
-    "prenom": "Amine",
-    "ville": "Marrakech",
-    "sexe": "homme"
-  },
-  {
-    "id": "3",
-    "nom": "AZARG",
-    "prenom": "Mohamed",
-    "ville": "Khouribga",
-    "sexe": "homme"
-  },
-  {
-    "id": "4",
-    "nom": "AZARG",
-    "prenom": "hafssa",
-    "ville": "Marrakech",
-    "sexe": "femme"
-  },
-  {
-    "id": "8",
-    "nom": "Duf",
-    "prenom": "Sara",
-    "ville": "Casablanca",
-    "sexe": "femme"
-  }
-]
-
-Résultat : JSON avec tous les étudiants, nouveau inclus.
-
 # Récupérer la liste :
 
 URL : http://localhost/projet/ws/loadEtudiant.php
 
 Méthode : GET
 
- Résultat : JSON contenant tous les étudiants.
+![](https://github.com/user-attachments/assets/8cc1934d-81b9-471e-b620-d2153a8fa466)
+
+Résultat : JSON contenant tous les étudiants avec l'ajout de nouveau etudiant .
+
+- le nouvel enregistrement a bien été ajouté dans phpMyadmin 
+
+![](https://github.com/user-attachments/assets/a6d2eb76-d112-4148-a663-03d66d1a7f24)
+
+# Partie 3 : Application Android (Volley + Gson)
+
+- Objectif
+
+Développer une application Android permettant d’ajouter un étudiant via un service web PHP en utilisant :
+
+- Volley pour les requêtes HTTP
+
+- Gson pour la conversion JSON → Objet Java
+
+ # Étape 1 — Création du projet Android
+
+![](https://github.com/user-attachments/assets/328c3f8c-2505-452f-9e45-e2f6dd36cf14)
+
+ # Étape 2 — Permission Internet
+
+- Ajout de la permission Internet dans le fichier AndroidManifest.xml.
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Projetws"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".AddEtudiant"
+            android:exported="false" />
+        <activity
+            android:name=".ListEtudiant"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
+
+📦 Étape 3 — Intégration de Volley et Gson
+
+Ajout des dépendances suivantes :
+
+Volley (gestion des requêtes HTTP)
+
+Gson (conversion JSON ↔ objets Java)
+
+Synchronisation du projet réussie.
+
+📸 Capture : build.gradle + Sync successful
+
+(insérer capture de Gradle après synchronisation)
+🧩 Étape 4 — Création de l’activité AddEtudiant
+🔹 Interface utilisateur
+
+L’interface contient :
+
+Champ Nom
+
+Champ Prénom
+
+Liste déroulante des villes
+
+Sélection du sexe (Homme / Femme)
+
+Bouton Ajouter
+
+📸 Capture : Interface AddEtudiant
+
+(insérer capture de l'écran de l'application)
+🔹 Fonctionnement
+
+L’utilisateur saisit les informations
+
+Les données sont envoyées via une requête POST avec Volley
+
+Le serveur PHP traite la requête
+
+La réponse JSON est reçue
+
+Gson convertit la réponse en objets Etudiant
+
+Les résultats sont affichés dans Logcat
+
+📸 Capture : Logcat après insertion
+
+(insérer capture Logcat avec la réponse JSON)
+🔐 Étape 5 — Configuration réseau (Android 9+)
+
+Android bloque par défaut les connexions HTTP non sécurisées.
+
+Une configuration réseau a été ajoutée pour autoriser le trafic en local vers :
+
+10.0.2.2
+
+📸 Capture : network_security_config.xml
+
+(insérer capture configuration réseau)
+🧪 Étape 6 — Test et vérification
+
+Serveur Apache démarré
+
+MySQL démarré
+
+Application lancée sur émulateur
+
+Insertion d’un étudiant réussie
+
+Réponse affichée dans Logcat
 
 
-phpMyAdmin : vérification de l’insertion dans la table Etudiant
+
+
